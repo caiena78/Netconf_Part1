@@ -6,13 +6,14 @@ from ncclient import manager
 import xml.dom.minidom
 
 payload = '''
-   <config>
-      <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+      <config xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns:xc="urn:ietf:params:xml:ns:netconf:base:1.0">
+       <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
         <interface>
           <GigabitEthernet>
             <name>1/0/10</name>
             <description>Enabled by Netconf</description>
-            <shutdown xc:operation="delete"/>
+            <!--If you try to enable a enabled interface it  will cause an RPC error --> 
+           <shutdown xc:operation="delete"/>
           </GigabitEthernet>
         </interface>
       </native>
