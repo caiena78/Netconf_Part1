@@ -40,7 +40,7 @@ if __name__ == '__main__':
                         password=args.password,
                         device_params={'name':'csr'})
 
-     m.timeout = 120
+    m.timeout = 120
 
     reply = m.get(data)
     # Pretty print the XML reply
